@@ -1,0 +1,47 @@
+
+<table class="table table-striped w-75 m-auto">
+
+    <thead>
+      <tr >
+        <th scope="col">id</th>
+        <th scope="col">Ragione Sociale</th>
+        <th scope="col">Email</th>
+        <th scope="col">P.iva</th>
+        <th scope="col"><button [routerLink]="['/newcli']" type="button" class="btn btn-button bg-success text-light">
+        Nuovo cliente</button></th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let client of clients; let i = index " >
+
+        <td>{{client.id}}</td>
+        <td>{{client.ragioneSociale}}</td>
+        <td>{{client.email}}</td>
+        <td>{{client.partitaIva}}</td>
+
+        <td><button type="button"  class="btn btn-button  bg-info text-light" [routerLink]="['/fattdett/',client.id]">Fatture</button></td>
+        <td><button type="button" class="btn btn-button bg-warning text-light"[routerLink]="['/modifica/',client.id]" >Modifica</button></td>
+        <td><button type="button" class="btn btn-button bg-danger text-light" (click)="deleteCli(client.id,i)">Elimina</button></td>
+      </tr>
+
+    </tbody>
+
+</table>
+<nav aria-label="Page navigation example">
+  <ul class="pagination" *ngIf="response">
+    <li class="page-item" *ngIf="!response.first">
+      <a class="page-link" (click)="$event.preventDefault(); CPage(0)" href="#">1</a>
+  </li>
+  <li class="page-item" *ngIf="!response.first">
+    <a class="page-link" (click)="$event.preventDefault(); CPage(response.number-1)" href="#">back</a>
+  </li>
+    <li class="page-item" *ngIf="!response.last">
+      <a class="page-link" (click)="$event.preventDefault();CPage(response.number + 1)" href="#">Next</a>
+    </li>
+    <li class="page-item" *ngIf="!response.last">
+      <a class="page-link" (click)="$event.preventDefault(); CPage(response.totalPages - 1)" href="#">...</a>
+  </li>
+  </ul>
+</nav>

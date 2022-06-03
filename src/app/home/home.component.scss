@@ -1,0 +1,80 @@
+.container{
+  margin: 0 auto;
+  text-align: center;
+  color: rgb(5, 5, 5);
+  display: flex;
+  flex-direction: row;
+  background-image: url(../../assets/images/pcbck.png);
+  padding: 27px;
+  height: 100%;
+    width: 80%;
+font-size: larger;
+text-shadow:1px 1px 1px rgb(255, 255, 255);
+justify-content: center;
+}
+
+.col-lg-4{background-color: white;
+margin: 5px;
+width: 224px;
+}
+
+
+.row {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: calc(-1 * var(--bs-gutter-y));
+  margin-right: calc(-0.5 * var(--bs-gutter-x));
+  margin-left: calc(-0.5 * var(--bs-gutter-x));
+  width: 42em
+}
+
+h1{
+  font-size: 5em;
+    margin-top: 81px;
+
+}
+img{
+  border-radius: 30px;
+}
+.icona{
+  width: 250px;
+  height: 250px;
+}
+form{
+  margin-top: 95px;
+}
+input{
+  border-radius: 5px;
+  height: 39px;
+    margin-right: 11px;
+    width: 25em;
+
+}
+
+input{
+  width: 50%;
+  margin: 0 auto;
+margin-bottom: 3px;
+border: solid #1d82b3 1px;
+}
+
+
+form{
+  text-align: center;
+  margin: 0 auto;
+}
+
+
+
+
+a{
+  background: rgb(0,36,3);
+  background: linear-gradient(221deg, rgba(0,36,3,1) 0%, rgba(9,9,121,0.7740283613445378) 35%, rgba(0,212,255,1) 100%);
+}
+
+
+
+
+

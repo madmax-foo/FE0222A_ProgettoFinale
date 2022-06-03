@@ -1,0 +1,45 @@
+
+<p>Registra nuova fattura</p>
+
+<form  [formGroup]="form" (ngSubmit)="onsubmit(id)">
+
+  <div class="form-group">
+    <label for="exampleInputEmail1">Data </label>
+    <input type="text" class="form-control" id="data"  formControlName="data"  aria-describedby="Ragione sociale" placeholder="data">
+
+  </div>
+
+  <div class="form-group">
+    <label for="exampleInputEmail1">Numero </label>
+    <input type="number" class="form-control" id="numero"  formControlName="numero"  aria-describedby="numero" placeholder="numero">
+
+  </div>
+
+  <div class="form-group">
+    <label for="anno">Anno </label>
+    <input type="number" class="form-control" id="anno"  formControlName="anno"  aria-describedby="anno" placeholder="anno">
+
+  </div>
+
+  <div class="form-group">
+    <label for="importo">importo </label>
+    <input type="number" class="form-control" id="importo" placeholder="importo" aria-describedby="importo" formControlName="importo">
+
+  </div>
+
+
+  <div class="form-group">
+    <label for="exampleInputEmail1">stato</label>
+    <select  formGroupName="stato" type="text" class="form-control" id="stato" aria-describedby="emailHelp"  placeholder="stato" formControlName="stato">
+    <option  formControlName="nome" class="form-control" value="1">pagata </option>
+    <option formControlName="nome" class="form-control" value="2">non pagata</option>
+    </select>
+  </div>
+
+
+
+
+
+
+  <button type="submit" class="btn btn-primary">Registra</button>
+</form>

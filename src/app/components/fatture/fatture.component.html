@@ -1,0 +1,50 @@
+
+<table class="table table-striped w-75 m-auto">
+
+  <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">Data</th>
+      <th scope="col">Numero</th>
+      <th scope="col">Anno</th>
+      <th scope="col">Importo</th>
+      <th scope="col">Stato</th>
+      <th scope="col">Cliente</th>
+      <th scope="col"></th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let fattura of fattureTot; let i = index ">
+
+      <td>{{fattura.id}}</td>
+      <td>{{fattura.data}}</td>
+      <td> {{fattura.numero}}</td>
+      <td>{{fattura.anno}} </td>
+      <td> {{fattura.importo}}</td>
+      <td>{{fattura.stato.nome}}</td>
+      <td>{{fattura.cliente}}</td> <!-- dovrebbe esserci '.ragioneSociale' ma credo ci sia un problema con l'api -->
+      <td> </td>
+      <td> <button class="btn btn-button bg-danger text-light" (click)="deleteFatt(fattura.id,i)">Elimina</button></td>
+      <td><button class="btn btn-warning" [routerLink]="['/modifatt/']">Modifica</button></td>
+    </tr>
+
+  </tbody>
+
+</table>
+<nav aria-label="Page navigation example">
+  <ul class="pagination" *ngIf="response">
+    <li class="page-item" *ngIf="!response.first">
+      <a class="page-link" (click)="$event.preventDefault(); changePage(0)" href="#">Primo</a>
+  </li>
+  <li class="page-item" *ngIf="!response.first">
+    <a class="page-link" (click)="$event.preventDefault(); changePage(response.number-1)" href="#">Previous</a>
+  </li>
+    <li class="page-item" *ngIf="!response.last">
+      <a class="page-link" (click)="$event.preventDefault();changePage(response.number + 1)" href="#">Next</a>
+    </li>
+    <li class="page-item" *ngIf="!response.last">
+      <a class="page-link" (click)="$event.preventDefault(); changePage(response.totalPages - 1)" href="#">Ultimo</a>
+  </li>
+  </ul>
+</nav>

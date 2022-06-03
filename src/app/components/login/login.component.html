@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row justify-content-center" id="forminput">
+    <div class="col-6">
+      <form #form="ngForm" (ngSubmit)="onsubmit(form)">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input ngModel name="username" class="form-control" type="text" id="username">
+        </div>
+        <div class="form-group">
+          <label for="pass">Password</label>
+          <input  ngModel name="password" class="form-control" type="text" id="pass">
+        </div>
+        <button class="btn btn-warning mt-3" [disabled]="isLoading" type="submit">Log In
+          <span *ngIf="isLoading" class="visually-hidden">Loading...</span>
+        </button>
+        <p>Not a member? <a [routerLink]="['/signup']">Sign Up!</a></p>
+      </form>
+      <div *ngIf="errorMessage" class="alert alert-danger mt-3" role="alert">
+        {{errorMessage}}
+       </div>
+    </div>
+  </div>
+</div>

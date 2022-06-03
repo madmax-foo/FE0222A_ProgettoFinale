@@ -1,0 +1,27 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Data</th>
+      <th scope="col">Numero</th>
+      <th scope="col">Anno</th>
+      <th scope="col">Importo</th>
+      <th scope="col">Stato</th>
+      <th scope="col">Cliente</th>
+      <th><button [routerLink]="['/nuovafatt']" class="btn btn.button bg-info">Nuova</button></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let fatt of fatture; let i = index">
+      <th scope="row">{{fatt.id}}</th>
+      <td>{{fatt.data| date:'short'}}</td>
+      <td>{{fatt.numero}}</td>
+      <td>{{fatt.anno}}</td>
+      <td>{{fatt.importo}}   &euro;</td>
+      <td>{{fatt.stato.nome}}</td>
+      <td>{{fatt.cliente.ragioneSociale}} {{fatt.cliente.tipoCliente}}</td>
+      <td><button class="btn btn-warning" [routerLink]="['/modifatt/',fatt.id]">Modifica</button></td>
+      <td><button class="btn btn-danger" >Elimina</button></td>
+    </tr>
+  </tbody>
+</table>

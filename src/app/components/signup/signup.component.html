@@ -1,0 +1,33 @@
+<div class="row justify-content-center" style="  border-radius: 10px;;">
+  <div class="col-6">
+    <form #form="ngForm" (ngSubmit)="onsubmit(form)">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input ngModel name="username" class="form-control" type="username" id="username">
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input ngModel name="email" class="form-control" type="email" id="email">
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input  ngModel name="password" minlength="6" class="form-control" type="password" id="password">
+      </div>
+      <div class="form-group mt-3">
+        <select ngModel name="role" class="form-select" id="role" type="role" placeholder="ruolo" >
+          <label for="role">Ruolo</label>
+
+          <option aria-placeholder="ruolo"  name="role" value="user" >User</option>
+          <option  name="role" value="admin">Admin</option>
+        </select>
+      </div>
+      <button class="btn btn-warning mt-3" [disabled]="isLoading" type="submit">Sign Up
+        <span *ngIf="isLoading" class="visually-hidden">Loading...</span>
+      </button>
+      <p style="color: white;"> <a style="color:white" routerLink="['/']">Or go to Login!</a></p>
+    </form>
+    <div *ngIf="errorMessage" class="alert alert-danger mt-3" role="alert">
+      {{errorMessage}}
+     </div>
+  </div>
+</div>

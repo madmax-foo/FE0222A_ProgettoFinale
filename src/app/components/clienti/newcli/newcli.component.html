@@ -1,0 +1,69 @@
+
+<p *ngIf="path">Registra nuovo cliente</p>
+<p *ngIf="cliente">Modifica cliente</p>
+
+<form  [formGroup]="form" >
+
+  <div class="form-group">
+    <label for="exampleInputEmail1">Nome </label>
+    <input type="text" class="form-control" id="nome"  formControlName="nomeContatto"  aria-describedby="Ragione sociale" placeholder="nome">
+
+  </div>
+
+  <div class="form-group">
+    <label for="cognome">Cognome </label>
+    <input type="text" class="form-control" id="cognome" formControlName="cognomeContatto"  aria-describedby="cognome" placeholder="cognome">
+
+  </div>
+
+  <div class="form-group">
+    <label for="Ragione sociale">Ragione Sociale </label>
+    <input type="text" class="form-control" id="ragioneSociale"  formControlName="ragioneSociale"  aria-describedby="Ragione sociale" placeholder="Ragione sociale">
+
+  </div>
+
+  <div class="form-group">
+    <label for="email">Email </label>
+    <input type="email" class="form-control" id="email" placeholder="email"  formControlName="email">
+
+  </div>
+
+
+  <div class="form-group">
+    <label for="exampleInputEmail1">Partita Iva</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"  placeholder="Partita iva" formControlName="partitaIva">
+
+  </div>
+
+
+  <div class="form-group">
+    <label for="exampleInputEmail1">Tipo Cliente</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"  placeholder="Tipo cliente" formControlName="tipoCliente">
+
+  </div>
+
+  <div class="form-group">
+    <label for="exampleInputPassword1">Email Contatto</label>
+    <input type="text" class="form-control" id="exampleInputPassword1"   placeholder="Email contatto" formControlName="emailContatto">
+  </div>
+  <div>
+
+  <div formGroupName="indirizzoSedeOperativa" class="form-group mt-3"  >
+
+   <label for="indirizzoSedeOperativa">Sede Operativa</label>
+    <select class="form-select">
+    <option  *ngFor="let comune of comuni" [ngValue]="comune" formControlName="comune" class="form-control" type="text" placeholder="Comune"> {{comune.nome}}</option>
+    <option value="1"></option>
+  </select>
+    <input formControlName="via" class="form-control"  type="text"  placeholder="via">
+    <input formControlName="civico" class="form-control" type="text" placeholder="civico" >
+    <input formControlName="cap" class="form-control" type="text" placeholder="cap" >
+    <input formControlName="localita" class="form-control" type="text" placeholder="Località">
+
+  </div>
+
+</div>
+
+  <button *ngIf="!path" (click)="putCli(cliente.id, form.value)" type="submit" class="btn btn-primary">Modifica</button>
+  <button  *ngIf="path" (click)="newclient( form.value)" type="submit" class="btn btn-primary">Registra</button>
+</form>

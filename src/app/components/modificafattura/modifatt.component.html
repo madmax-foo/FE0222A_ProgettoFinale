@@ -1,0 +1,49 @@
+
+
+
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+
+<form (ngSubmit)="send(form)" [formGroup]="form">
+  <div class="mb-3">
+    <label for="data" class="form-label">data*</label>
+    <input type="date" class="form-control" id="data" aria-describedby="emailHelp" formControlName="data">
+    <p></p>
+  </div>
+  <div class="mb-3">
+    <label for="numero" class="form-label">numero*</label>
+    <input type="number" class="form-control" id="numero" formControlName="numero" >
+  </div>
+
+  <div class="mb-3">
+    <label for="anno" class="form-label">anno*</label>
+    <input type="text" class="form-control" id="anno" formControlName="anno">
+  </div>
+
+
+
+  <div class="mb-3">
+    <label for="importo" class="form-label">importo €*</label>
+    <input type="number" class="form-control" id="importo" formControlName="importo" autocomplete="false">
+  </div>
+
+  <div class="mb-3">
+    <label for="stato">Stato</label>
+    <select formControlName="stato" class="form-select" id="stato" type="pagata" formControlName="stato" *ngIf="statoFattura && fattura" >
+    <option selected>...</option>
+    <option value="1">PAGATA</option>
+    <option value="2">NON PAGATA</option>
+
+  </select>
+  </div>
+
+
+  <button type="submit"  value="invia" class="btn btn-primary">Aggiungi</button>
+</form>
+</div>
+</div>
+</div>
